@@ -82,7 +82,7 @@ instance PP.Pretty DerivationSource where
             else vcat
                  [ text "src" <+> equals <+> text ("fetch" ++ derivKind) <+> lbrace
                  , nest 2 $ vcat
-                   [ attr "url" $ string derivUrl
+                   [ attr "url" $ text derivUrl
                    , attr "sha256" $ string derivHash
                    , if derivRevision /= "" then attr "rev" (string derivRevision) else PP.empty
                    , boolattr "fetchSubmodules" (isJust derivSubmodule) (fromJust derivSubmodule)
